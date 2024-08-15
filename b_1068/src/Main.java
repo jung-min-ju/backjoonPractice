@@ -1,45 +1,60 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 public class Main {
+    static int N;
+    static List<Integer> [] tree;
     public static void main(String[] args) throws IOException {
+
+        int remove = init();
+        dfs(remove);
+
+        int answer = 0;
+        for(int i=0; i<N; i++){
+            if(tree[i].size()==0) {
+                answer++;
+            }
+            if(tree[i].size()==1&&tree[i].get(0)==remove) answer++;
+        }
+
+        System.out.println(answer);
+    }
+
+    static void dfs(int idx) {
+        tree[idx].add(-1); //본인에 -1 처리
+
+        for(int i=0; i<tree[idx].size(); i++){
+            int child = tree[idx].get(i);
+            if(child==-1) break;
+            dfs(child); //자식에 -1 처리
+        }
+
+    }
+
+    static int init() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int max = 100000;
-        int N = Integer.parseInt(br.readLine());
+        StringTokenizer st;
 
-        int dist[][] = new int[N+1][N+1];
+        N = Integer.parseInt(br.readLine());
+        tree = new List[N];
 
-        //첫 배열 초기화
-        for(int i=1; i<=N; i++){
-            String s = br.readLine();
-            for(int j=1; j<=N; j++){
-                int value = s.charAt(j-1) == 'Y' ? 1 : max ;
-                dist[i][j] = value;
-            }
-        }
-        for(int k=1; k<=N; k++){
-            for(int i=1; i<=N; i++){
-                for(int j=1; j<=N; j++){
-                    if(i==j) continue;
-                    dist[i][j] = Math.min(dist[i][j], dist[i][k]+dist[k][j]);
-                }
-            }
+        st = new StringTokenizer(br.readLine());
+
+        for(int i=0; i<N; i++){
+            tree[i] = new LinkedList<>();
         }
 
-        int count = 0;
-
-        for (int i = 1; i <= N ; i++) {
-            int cnt = 0;
-            for (int j = 1; j <= N ; j++) {
-                if(dist[i][j] == 2 || dist[i][j] == 1){
-                    cnt++;
-                }
-            }
-            count = Math.max(count,cnt);
+        for(int i=0; i<N; i++) {
+            int idx = Integer.parseInt(st.nextToken());
+            if(idx==-1) continue;
+            tree[idx].add(i);
         }
 
-        System.out.println(count);
+        return Integer.parseInt(br.readLine());
 
     }
 }
