@@ -34,9 +34,11 @@ public class Main {
     static int find(int N) {
         // 아직 탐색하지 않는 N번째 계단일 경우
         if(dp[N] == null) {
-            dp[N] = Math.max(find(N - 2), find(N - 3) + arr[N - 1]) + arr[N];
+            System.out.println("dp가 null");
+            dp[N] = Math.max(find(N - 2), find(N - 3) + find(N-1)) + arr[N];
+            System.out.println("현재 dp"+N+"은 :" + dp[N]);
         }
-
+        System.out.println("현재 dp"+N+"은 :" + dp[N]);
         return dp[N];
     }
 
