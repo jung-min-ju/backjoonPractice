@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.StringTokenizer;
 
@@ -25,10 +24,7 @@ public class Main {
             input[i] = Integer.parseInt(st.nextToken());
         }
 
-        //6
-        //10 20 10 30 20 50
-
-        Arrays.fill(arr, 1);
+        arr[0] = 1;
         Arrays.fill(inorder, -1);
 
         //1. 가장 긴 증가하는 부분 수열 길이 + 그 전 인덱스 기록
@@ -52,6 +48,7 @@ public class Main {
     static int dp(int numDex) {
         if(arr[numDex]>0) return arr[numDex];
 
+        arr[numDex] = 1; // 초기화 (자기 자신만 포함하는 LIS는 길이 1)
         for(int i=0; i<=numDex; i++) {
             int ex = dp(i)+1;
             if(input[i] < input[numDex] && ex > arr[numDex]) {
@@ -70,7 +67,3 @@ public class Main {
 
     }
 }
-
-//0 1 2
-//0 0 1
-
