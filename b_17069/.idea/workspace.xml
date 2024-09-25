@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af90c826-0b84-48f1-810d-6360527f8444" name="Changes" comment="" />
+    <list default="true" id="af90c826-0b84-48f1-810d-6360527f8444" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../b_14002/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../b_14002/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +15,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2kw6xEyO7o7uKFXFmjmlOCCBAkb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -25,7 +27,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/minju.MINJU-COM-1.000/Desktop/코테스터디/backjoonPractice/b_11722",
+    "last_opened_file_path": "C:/Users/minju.MINJU-COM-1.000/Desktop/코테스터디/backjoonPractice/b_14002",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -52,6 +54,7 @@
       <option name="presentableId" value="Default" />
       <updated>1724182537266</updated>
       <workItem from="1724182538297" duration="1220000" />
+      <workItem from="1724912382460" duration="27000" />
     </task>
     <servers />
   </component>
