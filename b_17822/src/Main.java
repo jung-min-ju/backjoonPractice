@@ -1,3 +1,4 @@
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -80,8 +81,8 @@ public class Main {
             if(nowNum == onepan[nextX][nextY] && nowNum!=0) {
                 onepan[x][y]=0;
                 if(!dup) {
-                   isDup=true;
-                   flag=true;
+                    isDup=true;
+                    flag=true;
                 }
                 dfs(nextX, nextY, true);
             }
