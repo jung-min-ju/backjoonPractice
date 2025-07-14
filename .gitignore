@@ -1,0 +1,14 @@
+# IntelliJ 설정 파일 제외
+.idea/
+*.iml
+
+# Java 빌드 결과물 제외
+out/
+*.class
+
+# 로그 파일 제외
+*.log
+
+# macOS, Windows, Linux 시스템 파일
+.DS_Store
+Thumbs.db
