@@ -3,18 +3,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
 
-//TIP 코드를 <b>실행</b>하려면 <shortcut actionId="Run"/>을(를) 누르거나
-// 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
 class Info  {
     int x;
     int y;
-    int dir;
     int move;
 
-    public Info(int x, int y, int dir, int move) {
+    public Info(int x, int y, int move) {
         this.x=x;
         this.y=y;
-        this.dir=dir;
         this.move=move;
     }
 }
@@ -26,7 +22,7 @@ public class Main {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        int [][][] move = new int[N+2][N+2][4];
+        int [][] move = new int[N+2][N+2];
         char [][] map = new char[N+2][N+2];
         int answer = 0;
         int dirX[] = {0,0,1,-1};
@@ -42,9 +38,7 @@ public class Main {
         }
 
         for(int i=0; i<N+2; i++){
-            for(int j=0; j<N+2; j++){
-                Arrays.fill(move[i][j], Integer.MAX_VALUE);
-            }
+            Arrays.fill(move[i], Integer.MAX_VALUE);
         }
 
         for(int i=1; i<=N; i++){
@@ -52,14 +46,14 @@ public class Main {
             for (int j = 1; j <= N; j++) {
                 map[i][j] = line.charAt(j-1);
                 if(map[i][j]=='S') {
-                    queue.add(new Info(i,j,0,0));
+                    queue.add(new Info(i,j,0));
                 }
             }
         }
 
         while (!queue.isEmpty()) {
             Info now = queue.poll();
-            move[now.x][now.y][now.dir]=now.move;
+            move[now.x][now.y]=now.move;
 
             if(map[now.x][now.y]=='K') {
                 M--;
@@ -74,8 +68,8 @@ public class Main {
                 int nextY = now.y+dirY[i];
 
                 if(map[nextX][nextY]=='1') continue;
-                if(move[nextX][nextY][i] < now.move+1) continue;
-                queue.add(new Info(nextX, nextY, i, now.move+1));
+                if(move[nextX][nextY]< now.move+1) continue;
+                queue.add(new Info(nextX, nextY,now.move+1));
             }
         }
         System.out.println(M==0 ? answer : -1);
